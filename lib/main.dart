@@ -31,6 +31,10 @@ class _HomePageState extends State<HomePage> {
   final _formKey = GlobalKey<FormState>();
   var isLoading = false;
   late String emailvalue1 = "";
+  late String dateofbirthvalue1 = "";
+  late String phonevalue1 = "";
+  late String agevalue1 = "";
+  late String passwordvalue1 = "";
 
   late SharedPreferences prefs;
 
@@ -75,7 +79,9 @@ class _HomePageState extends State<HomePage> {
               TextFormField(
                 decoration: const InputDecoration(labelText: 'E-Mail'),
                 keyboardType: TextInputType.emailAddress,
-                onFieldSubmitted: (emailvalue) {
+                onFieldSubmitted: (emailvalue) async {
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
                   prefs.setString("email", emailvalue);
                   print(prefs.getString("email"));
                   emailvalue1 = emailvalue;
@@ -96,9 +102,12 @@ class _HomePageState extends State<HomePage> {
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Date of birth'),
                 keyboardType: TextInputType.datetime,
-                onFieldSubmitted: (dateofbirthvalue) {
+                onFieldSubmitted: (dateofbirthvalue) async {
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
                   prefs.setString("dateofbirth", dateofbirthvalue);
                   print(prefs.getString("dateofbirth"));
+                  dateofbirthvalue1 = dateofbirthvalue;
                 },
                 validator: (dateofbirthvalue) {
                   if (dateofbirthvalue!.isEmpty ||
@@ -116,9 +125,12 @@ class _HomePageState extends State<HomePage> {
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Phone'),
                 keyboardType: TextInputType.number,
-                onFieldSubmitted: (phonevalue) {
+                onFieldSubmitted: (phonevalue) async {
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
                   prefs.setString("phone", phonevalue);
                   print(prefs.getString("phone"));
+                  phonevalue1 = phonevalue;
                 },
                 validator: (phonevalue) {
                   if (phonevalue!.isEmpty ||
@@ -136,9 +148,12 @@ class _HomePageState extends State<HomePage> {
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Age'),
                 keyboardType: TextInputType.number,
-                onFieldSubmitted: (agevalue) {
+                onFieldSubmitted: (agevalue) async {
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
                   prefs.setString("age", agevalue);
                   print(prefs.getString("age"));
+                  agevalue1 = agevalue;
                 },
                 validator: (agevalue) {
                   if (agevalue!.isEmpty ||
@@ -157,9 +172,12 @@ class _HomePageState extends State<HomePage> {
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Password'),
                 keyboardType: TextInputType.emailAddress,
-                onFieldSubmitted: (passwordvalue) {
+                onFieldSubmitted: (passwordvalue) async {
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
                   prefs.setString("password", passwordvalue);
                   print(prefs.getString("password"));
+                  passwordvalue1 = passwordvalue;
                 },
                 obscureText: true,
                 validator: (passwordvalue) {
@@ -185,13 +203,19 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => showdetails(
-                                emailvalue: emailvalue1,
-                              )),
-                    );
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => showdetails(
+                                  emailvalue: emailvalue1,
+                                  dateofbirthvalue: dateofbirthvalue1,
+                                  passwordvalue: passwordvalue1,
+                                  phonevalue: phonevalue1,
+                                  agevalue: agevalue1,
+                                )),
+                      );
+                    }
                   })
             ],
           ),
