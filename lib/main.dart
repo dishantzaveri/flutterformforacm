@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: const HomePage(),
       theme: ThemeData(
-        brightness: Brightness.dark,
+        brightness: Brightness.light,
       ),
     );
   }
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Fill your Profile"),
+        title: const Text("Fill Your Profile"),
         leading: const Icon(Icons.spa),
       ),
       //body
@@ -74,9 +74,10 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: <Widget>[
               SizedBox(
-                height: MediaQuery.of(context).size.width * 0.05,
+                height: MediaQuery.of(context).size.width * 0.03,
               ),
               TextFormField(
+                style: const TextStyle(fontSize: 20, color: Colors.red),
                 decoration: const InputDecoration(labelText: 'E-Mail'),
                 keyboardType: TextInputType.emailAddress,
                 onFieldSubmitted: (emailvalue) async {
@@ -97,9 +98,10 @@ class _HomePageState extends State<HomePage> {
               ),
 
               SizedBox(
-                height: MediaQuery.of(context).size.width * 0.05,
+                height: MediaQuery.of(context).size.width * 0.03,
               ),
               TextFormField(
+                style: const TextStyle(fontSize: 20, color: Colors.red),
                 decoration: const InputDecoration(labelText: 'Date of birth'),
                 keyboardType: TextInputType.datetime,
                 onFieldSubmitted: (dateofbirthvalue) async {
@@ -120,9 +122,10 @@ class _HomePageState extends State<HomePage> {
               ),
 
               SizedBox(
-                height: MediaQuery.of(context).size.width * 0.05,
+                height: MediaQuery.of(context).size.width * 0.03,
               ),
               TextFormField(
+                style: const TextStyle(fontSize: 20, color: Colors.red),
                 decoration: const InputDecoration(labelText: 'Phone'),
                 keyboardType: TextInputType.number,
                 onFieldSubmitted: (phonevalue) async {
@@ -143,9 +146,10 @@ class _HomePageState extends State<HomePage> {
               ),
 
               SizedBox(
-                height: MediaQuery.of(context).size.width * 0.05,
+                height: MediaQuery.of(context).size.width * 0.03,
               ),
               TextFormField(
+                style: const TextStyle(fontSize: 20, color: Colors.red),
                 decoration: const InputDecoration(labelText: 'Age'),
                 keyboardType: TextInputType.number,
                 onFieldSubmitted: (agevalue) async {
@@ -166,10 +170,11 @@ class _HomePageState extends State<HomePage> {
 
               //box styling
               SizedBox(
-                height: MediaQuery.of(context).size.width * 0.05,
+                height: MediaQuery.of(context).size.width * 0.03,
               ),
               //text input
               TextFormField(
+                style: const TextStyle(fontSize: 20, color: Colors.red),
                 decoration: const InputDecoration(labelText: 'Password'),
                 keyboardType: TextInputType.emailAddress,
                 onFieldSubmitted: (passwordvalue) async {
@@ -188,7 +193,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.width * 0.05,
+                height: MediaQuery.of(context).size.width * 0.03,
               ),
               // ignore: deprecated_member_use
               RaisedButton(
@@ -199,7 +204,7 @@ class _HomePageState extends State<HomePage> {
                   child: const Text(
                     "Submit",
                     style: TextStyle(
-                      fontSize: 24.0,
+                      fontSize: 22.0,
                     ),
                   ),
                   onPressed: () {

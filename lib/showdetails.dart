@@ -23,10 +23,16 @@ class showdetails extends StatefulWidget {
 class _showdetailsState extends State<showdetails> {
   get children => null;
 
+  get appBar => null;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        AppBar(
+          title: const Text("Your Profile"),
+          leading: const Icon(Icons.people_outline_sharp),
+        ),
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 25, 20, 4),
           child: Container(
@@ -34,10 +40,13 @@ class _showdetailsState extends State<showdetails> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: const EdgeInsets.all(3.0),
+                padding: const EdgeInsets.all(6.0),
                 child: Text(
                   widget.emailvalue,
-                  style: TextStyle(color: Colors.red, fontSize: 25),
+                  style: TextStyle(
+                      decoration: TextDecoration.none,
+                      color: Colors.red,
+                      fontSize: 25),
                 ),
               ),
             ),
@@ -53,29 +62,13 @@ class _showdetailsState extends State<showdetails> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: Text(
-                  widget.agevalue,
-                  style: TextStyle(color: Colors.red, fontSize: 25),
-                ),
-              ),
-            ),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                border: Border.all(width: 1.0, color: Colors.white70)),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20, 5, 20, 4),
-          child: Container(
-            height: 60,
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(6.0),
                 child: Text(
                   widget.dateofbirthvalue,
-                  style: TextStyle(color: Colors.red, fontSize: 25),
+                  style: TextStyle(
+                      decoration: TextDecoration.none,
+                      color: Colors.red,
+                      fontSize: 25),
                 ),
               ),
             ),
@@ -91,29 +84,57 @@ class _showdetailsState extends State<showdetails> {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: Text(
-                  widget.passwordvalue,
-                  style: TextStyle(color: Colors.red, fontSize: 25),
-                ),
-              ),
-            ),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                border: Border.all(width: 1.0, color: Colors.white70)),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20, 5, 20, 4),
-          child: Container(
-            height: 60,
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(3.0),
+                padding: const EdgeInsets.all(6.0),
                 child: Text(
                   widget.phonevalue,
-                  style: TextStyle(color: Colors.red, fontSize: 25),
+                  style: TextStyle(
+                      decoration: TextDecoration.none,
+                      color: Colors.red,
+                      fontSize: 20),
+                ),
+              ),
+            ),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                border: Border.all(width: 1.0, color: Colors.white70)),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 5, 20, 4),
+          child: Container(
+            height: 60,
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Text(
+                  widget.agevalue,
+                  style: TextStyle(
+                      decoration: TextDecoration.none,
+                      color: Colors.red,
+                      fontSize: 25),
+                ),
+              ),
+            ),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                border: Border.all(width: 1.0, color: Colors.white70)),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 5, 20, 4),
+          child: Container(
+            height: 60,
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Text(
+                  widget.passwordvalue,
+                  style: TextStyle(
+                      decoration: TextDecoration.none,
+                      color: Colors.red,
+                      fontSize: 25),
                 ),
               ),
             ),
@@ -131,7 +152,10 @@ class _showdetailsState extends State<showdetails> {
               child: Align(
                 child: Text(
                   'WELCOME',
-                  style: TextStyle(color: Colors.white70, fontSize: 20),
+                  style: TextStyle(
+                      decoration: TextDecoration.none,
+                      color: Colors.white70,
+                      fontSize: 20),
                 ),
               ),
               decoration: BoxDecoration(
